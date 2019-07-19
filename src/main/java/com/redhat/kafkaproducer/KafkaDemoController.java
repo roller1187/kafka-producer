@@ -1,4 +1,4 @@
-package com.redhat.kafkaproducer;
+package com.redhat.kafkademo;
 
 import java.util.concurrent.atomic.AtomicLong;
 
