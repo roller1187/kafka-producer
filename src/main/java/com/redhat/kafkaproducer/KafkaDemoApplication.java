@@ -1,4 +1,4 @@
-package com.redhat.kafkademo;
+package com.redhat.kafkaproducer;
 
 import java.util.concurrent.CountDownLatch;
 
