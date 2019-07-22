@@ -7,7 +7,6 @@ import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
@@ -19,6 +18,12 @@ public class KafkaDemoController {
     private KafkaTemplate<String, String> messageTemplate;
 
     @GetMapping("/")
+    @ResponseBody
+    public void rootPath() {
+        KafkaDemoApplication.logger.info("Accessed root context path" );
+    }
+    
+    @GetMapping("/hello")
     @ResponseBody
     public Message sayHello() {
         KafkaDemoApplication.logger.info("Sent: HELLO-WORLD" );
