@@ -26,16 +26,24 @@ public class KafkaDemoController {
     @GetMapping("/hello")
     @ResponseBody
     public Message sayHello() {
-        KafkaDemoApplication.logger.info("Sent: HELLO-WORLD" );
-    	this.messageTemplate.send("my-topic", "HELLO-WORLD");
+        KafkaDemoApplication.logger.info("Sent: helloworld" );
+    	this.messageTemplate.send("my-topic", "helloworld");
         return new Message(counter.incrementAndGet(), "Hello World!");
     }
     
-    @GetMapping("/msg/{value}")
+    @GetMapping("/msg/{value}/{topic}")
     @ResponseBody
-    public Message sendMessage(@PathVariable String value) {
-    	KafkaDemoApplication.logger.info("Sent: " + value);
-    	this.messageTemplate.send("my-topic", value);
-    	return new Message(counter.incrementAndGet(), "Sent: " + value);
+    public Message sendMessage(@PathVariable("value") String value, @PathVariable("topic") String topic) {
+    	String messageBody;
+    	if (!topic.isEmpty()) {
+    		KafkaDemoApplication.logger.info("Sent: " + value + " to topic: " + topic);
+        	this.messageTemplate.send(topic, value);
+        	messageBody = "Sent: " + value;
+    	} else {
+    		messageBody = "Error, invalid message/topic value";
+    	}
+    	return new Message(counter.incrementAndGet(), messageBody);
+    	
     }
+    
 }
