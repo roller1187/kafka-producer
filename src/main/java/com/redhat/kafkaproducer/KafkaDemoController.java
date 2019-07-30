@@ -36,11 +36,11 @@ public class KafkaDemoController {
     public Message sendMessage(@PathVariable("value") String value, @PathVariable("topic") String topic) {
     	String messageBody;
     	if (!topic.isEmpty()) {
-    		KafkaDemoApplication.logger.info("Sent: " + value + " to topic: " + topic);
+    		KafkaDemoApplication.logger.info("Sent: \"" + value + "\" to topic: \"" + topic + "\"");
         	this.messageTemplate.send(topic, value);
         	messageBody = "Sent: " + value;
     	} else {
-    		messageBody = "Error, invalid message/topic value";
+    		messageBody = "Error, invalid message: \"" + value + " and topic: \"" + topic + "\"";
     	}
     	return new Message(counter.incrementAndGet(), messageBody);
     	
