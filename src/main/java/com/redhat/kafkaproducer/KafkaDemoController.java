@@ -27,7 +27,7 @@ public class KafkaDemoController {
     @ResponseBody
     public Message sayHello() {
         KafkaDemoApplication.logger.info("Sent: helloworld" );
-    	this.messageTemplate.send("my-topic", "helloworld");
+    	this.messageTemplate.send(System.getenv("kafka.backend.topic"), "helloworld");
         return new Message(counter.incrementAndGet(), "Hello World!");
     }
     
