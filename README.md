@@ -27,7 +27,7 @@ oc expose svc/kafka-producer
 ```
 
 ---
-**NOTE**
+**NOTE:**
 
 In order to access the producer's API to send a message, use the following syntax:
 
