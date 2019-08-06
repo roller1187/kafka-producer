@@ -6,7 +6,7 @@ This purpose of this service is to:
 
 ---
 
-## Instructions for deploying on OpenShift
+## Instructions for deploying on OpenShift:
   1. Login to OpenShift:
 ```sh
 oc login <openshift_cluster>
