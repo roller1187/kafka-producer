@@ -26,6 +26,17 @@ oc new-app redhat-openjdk18-openshift:1.4~https://github.com/roller1187/kafka-pr
 oc expose svc/kafka-producer
 ```
 
+---
+**NOTE**
+
+In order to access the producer's API to send a message, use the following syntax:
+
+http://<openshift_producer_route_url>/msg/<message_contents>/<backend_topic_name>
+
+e.g. To send "hello" to backend topic "my-topic-user1" use:
+http://kafka-producer-kafka-user1.apps.my-openshift.redhatgov.io/msg/hello/my-topic-user1
+
+---
 
 *Acrostic example:
 
