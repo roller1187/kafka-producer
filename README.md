@@ -19,7 +19,6 @@ oc project kafka-$(oc whoami)
 ```sh
 oc new-app redhat-openjdk18-openshift:1.4~https://github.com/roller1187/kafka-producer.git \
     --env KAFKA_BACKEND_TOPIC=my-topic-$(oc whoami) \
-    --env KAFKA_PRODUCER_URL=http://kafka-producer.kafka-$(oc whoami).svc.cluster.local:8080
     --env SPRING_KAFKA_BOOTSTRAP_SERVERS=my-cluster-kafka-external-bootstrap.kafka-demo.svc.cluster.local:9094
 ```
   4. Expose a route to access the producer service outside of OpenShift:
