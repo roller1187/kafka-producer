@@ -1,4 +1,6 @@
-<img src="https://developers.redhat.com/blog/wp-content/uploads/2018/10/Untitled-drawing-4.png" data-canonical-src="https://developers.redhat.com/blog/wp-content/uploads/2018/10/Untitled-drawing-4.png" width="300" height="140" /># Acrostic Kafka Producer
+<img src="https://developers.redhat.com/blog/wp-content/uploads/2018/10/Untitled-drawing-4.png" data-canonical-src="https://developers.redhat.com/blog/wp-content/uploads/2018/10/Untitled-drawing-4.png" width="300" height="140" />
+
+# Acrostic Kafka Producer
 
 This purpose of this service is to:
   * Expose a RESTful API for submitting messages to a Kafka topic
