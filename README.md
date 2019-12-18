@@ -22,7 +22,11 @@ oc new-app redhat-openjdk18-openshift:1.4~https://github.com/roller1187/kafka-pr
     --env KAFKA_BACKEND_TOPIC=my-topic \
     --env SPRING_KAFKA_BOOTSTRAP_SERVERS=my-cluster-kafka-external-bootstrap.kafka.svc.cluster.local:9094
 ```
-  4. Expose a route to access the producer service outside of OpenShift:
+  4. Add ConfigMap to Producer
+```sh
+oc set volume dc/kafka-producer --add --type=configmap --configmap-name=kafka-cert --mount-path=/tmp/certs
+```
+  5. Expose a route to access the producer service outside of OpenShift:
 ```sh
 oc expose svc/kafka-producer
 ```
